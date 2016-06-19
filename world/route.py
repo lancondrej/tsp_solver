@@ -19,4 +19,5 @@ class Route:
 
     @property
     def paths(self):
-        return [city.paths[next] for city in self.route for next in self.route[1:]]
+        a= [self.route[index-1].paths[city] for index, city in list(enumerate(self.route))[1:]]
+        return a
