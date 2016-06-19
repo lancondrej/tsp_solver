@@ -4,15 +4,14 @@ import itertools
 import bisect
 
 class Ant:
-    def __init__(self, world, alpha=0.4, beta=2, gamma=0.1, pheromone=1.0):
+    def __init__(self, world, alpha=0.4, beta=2, gamma=0.1, start=None):
         self.alpha = alpha
         self.beta = beta
         self.gamma =gamma
-        self.position = random.choice(world.cities)
-        # self.position = world.cities[0]
+        self.position = start or random.choice(world.cities)
         self.route = Route()
         self.unvisited = world.cities[:]
-        self.pheromone = pheromone
+        self.pheromone = 1
         self.world = world
 
     def move(self):
@@ -30,7 +29,9 @@ class Ant:
         ph=self.pheromone / self.route.length()
         for path in self.route.paths:
             path.add_ph(ph)
-        pass
+        # for path in self.route.rpaths:
+        #     path.add_ph(ph)
+
 
     def choose_move(self):
         if len(self.unvisited) == 0:

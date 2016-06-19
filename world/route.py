@@ -21,3 +21,10 @@ class Route:
     def paths(self):
         a= [self.route[index-1].paths[city] for index, city in list(enumerate(self.route))[1:]]
         return a
+
+    @property
+    def rpaths(self):
+        rr=self.route[:]
+        rr.reverse()
+        a= [self.route[index-1].paths[city] for index, city in list(enumerate(rr))[1:]]
+        return a
