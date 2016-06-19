@@ -8,8 +8,8 @@ class Ant:
         self.alpha = alpha
         self.beta = beta
         self.gamma =gamma
-        # self.position = random.choice(world.cities)
-        self.position = world.cities[0]
+        self.position = random.choice(world.cities)
+        # self.position = world.cities[0]
         self.route = Route()
         self.unvisited = world.cities[:]
         self.pheromone = pheromone
@@ -24,7 +24,6 @@ class Ant:
         while self.unvisited:
             self.move()
         self.route.append(self.route[0])
-        self.set_pheromone()
         return self.route
 
     def set_pheromone(self):
