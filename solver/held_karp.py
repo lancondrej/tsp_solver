@@ -2,7 +2,6 @@ __author__ = 'Ondřej Lanč'
 from world.route import Route
 
 def hk_sub(start, city_subset, end):
-    # X: subset of C (set of all nodes)
     if city_subset == set():
         return start.paths[end].distance, [end]
     else:
