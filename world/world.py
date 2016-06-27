@@ -37,3 +37,7 @@ class World:
         if not self._paths:
             self._paths = [path for city in self.cities for (next, path) in city.paths.items()]
         return self._paths
+
+    def reset_pher(self):
+        for path in self.paths:
+            path.pher=0

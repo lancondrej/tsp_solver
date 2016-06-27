@@ -9,7 +9,7 @@ import timeit
 from solver.ACO.colony import Colony
 
 
-count_of_cities = 12
+count_of_cities = 100
 upper_bound = 1000
 city_seed = 8
 world=World()
@@ -29,18 +29,18 @@ print(timeit.default_timer() - start_time)
 # print(distance)
 # print(timeit.default_timer() - start_time)
 
-print("HK")
-start_time = timeit.default_timer()
-route=hk(world)
-distance=route.length()
-print(distance)
-print(timeit.default_timer() - start_time)
-
-# print("ACO")
+# print("HK")
 # start_time = timeit.default_timer()
-# colony = Colony(world, 50, 100, 0.5, 2, 1, 0.2, 100)
-# route, routes=colony.solve()
+# route=hk(world)
 # distance=route.length()
 # print(distance)
 # print(timeit.default_timer() - start_time)
+
+print("ACO")
+start_time = timeit.default_timer()
+colony = Colony(world, 50, 100, 0.5, 2, 1, 0.2, 100)
+route, routes=colony.solve()
+distance=route.length()
+print(distance)
+print(timeit.default_timer() - start_time)
 

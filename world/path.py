@@ -15,8 +15,8 @@ class Path:
     def _euclidean_distance(self, start, finish):
         return numpy.linalg.norm(numpy.subtract((finish.x, finish.y), (start.x, start.y)))
 
-    def evaporate(self, func):
-        self.pher=func(self.pher)
+    def evaporate(self, rho):
+        self.pher=self.pher * rho
 
     def add_ph(self, pher):
         self.pher = self.pher + pher
